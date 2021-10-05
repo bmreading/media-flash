@@ -1,0 +1,46 @@
+conky.config = {
+	background = false,
+	lua_load = 'INSTALL_PATH/draw.lua',
+	lua_draw_hook_pre = 'draw_bg',
+
+	-- Performance options
+	imlib_cache_size = 0,
+	update_interval = 2,
+	total_run_times = 0,
+
+	-- Text options
+	use_xft = true,
+	font = 'FONT:bold:size=FONT_SIZE',
+
+	-- Windowing options
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_transparent = true,
+	minimum_width = 350,
+	minimum_height = 110,
+
+	-- Graphical options
+	draw_blended = false,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	double_buffer = true,
+	no_buffers = true,
+
+	-- Placement and formatting options
+	alignment = 'top_left',
+	gap_x = X_COORD,
+	gap_y = Y_COORD,
+	border_inner_margin = 13
+};
+
+conky.text = [[
+${if_match "${exec playerctl status -p PLAYER_NAME}"=="Playing"}\
+${color1}${offset 123}${voffset 14}${exec playerctl metadata xesam:artist -p PLAYER_NAME}
+${color1}${offset 123}${voffset 2}"${exec playerctl metadata xesam:title -p PLAYER_NAME}"
+${color1}${offset 123}${voffset 2}${exec playerctl metadata xesam:album -p PLAYER_NAME}\
+${exec if [ $(playerctl status -p PLAYER_NAME) == 'Playing' ]; then (unlink INSTALL_PATH/art; ln -s $(playerctl metadata mpris:artUrl -p PLAYER_NAME | awk 'sub(/^.{7}/,"")') INSTALL_PATH/art;) fi}\
+${image INSTALL_PATH/art -s 110x110}
+${endif}
+]];
