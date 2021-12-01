@@ -5,10 +5,10 @@ import os
 def main():
     print("Please specify the following: \n")
 
-    print("Installation path? [~/.conky]")
+    print("Installation path? [~/.config/conky]")
     install_path = input()
     if install_path == "":
-        install_path = "~/.conky"
+        install_path = "~/.config/conky"
     if install_path[-1] == '/':
         install_path = install_path.rstrip(install_path[-1])
     install_path = f'{install_path}/MediaFlash'
