@@ -36,11 +36,11 @@ conky.config = {
 };
 
 conky.text = [[
-${if_match "${exec playerctl status -p PLAYER_NAME}"=="Playing"}\
+${if_match "${exec playerctl status -ps PLAYER_NAME}"=="Playing"}\
 ${color1}${offset 123}${voffset 14}${exec playerctl metadata xesam:artist -p PLAYER_NAME}
 ${color1}${offset 123}${voffset 2}"${exec playerctl metadata xesam:title -p PLAYER_NAME}"
 ${color1}${offset 123}${voffset 2}${exec playerctl metadata xesam:album -p PLAYER_NAME}\
-${exec if [ $(playerctl status -p PLAYER_NAME) == 'Playing' ]; then (unlink INSTALL_PATH/art; ln -s $(playerctl metadata mpris:artUrl -p PLAYER_NAME | awk 'sub(/^.{7}/,"")') INSTALL_PATH/art;) fi}\
+${exec if [ "$(playerctl status -ps PLAYER_NAME)" == "Playing" ]; then (unlink INSTALL_PATH/art; ln -s $(playerctl metadata mpris:artUrl -p PLAYER_NAME | awk 'sub(/^.{7}/,"")') INSTALL_PATH/art;) fi}\
 ${image INSTALL_PATH/art -s 110x110}
 ${endif}
 ]];

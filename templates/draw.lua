@@ -10,7 +10,7 @@ function rgb_to_r_g_b(colour,alpha)
 end
 
 function conky_draw_bg()
-	local status = os.capture("playerctl status -p PLAYER_NAME", false);
+	local status = os.capture("playerctl status -ps PLAYER_NAME", false);
 	if status~="Playing" then return end
 
 	if conky_window==nil then return end
