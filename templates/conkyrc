@@ -29,7 +29,7 @@ conky.config = {
 	no_buffers = true,
 
 	-- Placement and formatting options
-	alignment = 'top_left',
+	alignment = 'bottom_left',
 	gap_x = X_COORD,
 	gap_y = Y_COORD,
 	border_inner_margin = 13
