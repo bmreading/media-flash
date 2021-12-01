@@ -23,15 +23,15 @@ def main():
     if font_size == "":
         font_size = "13"
 
-    print("X coordinate placement on screen? [45]")
+    print("X coordinate placement on screen? [38]")
     x_coord = input()
     if x_coord == "":
-        x_coord = "45"
+        x_coord = "38"
 
-    print("Y coordinate placement on screen? [100]")
+    print("Y coordinate placement on screen? [38]")
     y_coord = input()
     if y_coord == "":
-        y_coord = "100"
+        y_coord = "38"
     
     print("Player name? (Use \"playerctl --list-all\" if unsure)")
     player_name = input()
